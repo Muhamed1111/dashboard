@@ -5871,3 +5871,4 @@ export const PyramidData = [
   { x: 'Fruits', y: 520, text: '520 cal' },
   { x: 'Bread, Rice, Pasta', y: 930, text: '930 cal' },
 ];
+
