@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@hello-pangea/dnd": "^18.0.1",
     "@syncfusion/ej2": "^19.4.48",
     "@syncfusion/ej2-icons": "^29.1.33",
     "@syncfusion/ej2-react-calendars": "^19.4.48",
@@ -17,12 +18,20 @@
     "@tailwindcss/vite": "^4.1.4",
     "@tanstack/react-table": "^8.21.3",
     "chart.js": "^4.4.9",
+    "date-fns": "^4.1.0",
+    "file-saver": "^2.0.5",
+    "papaparse": "^5.5.2",
     "react": "^18.3.1",
+    "react-big-calendar": "^1.18.0",
+    "react-calendar": "^5.1.0",
     "react-chartjs-2": "^5.3.0",
+    "react-color": "^2.19.3",
     "react-dom": "^18.3.1",
     "react-icons": "^4.3.1",
+    "react-quill": "^2.0.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "recharts": "^2.15.3",
     "web-vitals": "^4.2.4"
   },
   "scripts": {

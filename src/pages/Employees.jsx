@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { employeesData } from '../data/dummy';
 import { Header } from '../components';
 
-const ITEMS_PER_PAGE = 3;
+const ITEMS_PER_PAGE = 5;
 
 const Employees = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -51,14 +51,15 @@ const Employees = () => {
   };
 
   return (
-    <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
+    <div className="dark:bg-secondary-dark-bg dark:text-white m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
       <Header category="Page" title="Employees" />
 
       <div className="mb-4 flex flex-wrap">
         <input
           type="text"
           placeholder="Search by employee name..."
-          className="border border-gray-300 rounded px-3 py-1 w-full md:w-1/3"
+          className="border border-gray-300 rounded px-3 py-1 w-full
+          md:w-1/3 dark:bg-secondary-dark-bg dark:text-white dark:font-semibold "
           value={searchTerm}
           onChange={(e) => {
             setSearchTerm(e.target.value);
@@ -70,7 +71,7 @@ const Employees = () => {
 
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm text-left text-gray-700">
-          <thead className="bg-gray-100 text-xs uppercase cursor-pointer">
+          <thead className="bg-gray-100 text-xs uppercase cursor-pointer dark:bg-secondary-dark-bg dark:text-white">
             <tr>
               <th className="px-4 py-3">Image</th>
               <th className="px-4 py-3" onClick={() => handleSort('Name')}>
@@ -93,13 +94,13 @@ const Employees = () => {
           <tbody>
             {paginatedData.length === 0 ? (
               <tr>
-                <td colSpan="6" className="text-center py-10 text-gray-500">
+                <td colSpan="6" className=" dark:text-white text-center py-10 text-gray-500">
                   No records to display
                 </td>
               </tr>
             ) : (
               paginatedData.map((employee) => (
-                <tr key={employee.EmployeeID} className="border-b">
+                <tr key={employee.EmployeeID} className="border-b dark:text-white">
                   <td className="px-4 py-3">
                     <img
                       src={employee.EmployeeImage}
@@ -130,7 +131,7 @@ const Employees = () => {
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+          className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50 dark:bg-secondary-dark-bg dark:text-white"
         >
           Prev
         </button>
@@ -140,7 +141,7 @@ const Employees = () => {
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+          className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50 dark:bg-secondary-dark-bg dark:text-white"
         >
           Next
         </button>

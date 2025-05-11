@@ -9,6 +9,7 @@ import { FiBold } from 'react-icons/fi'
 import { ReactComponent as CircleIcon } from './circle-icon.svg';
 
 const Ecommerce = () => {
+  const { activeMenu, setActiveMenu,currentColor } = useStateContext();
   return (
     <div className='mt-12'>
       <div className=' flex-wrap lg:flex-nowrap justify-center'>
@@ -28,7 +29,7 @@ const Ecommerce = () => {
           <div className='mt-6'>
             <Button
               color="white"
-              bgColor="blue"
+              bgColor={currentColor}
               text="Download"
               borderRadius="10px"
               size="md"
@@ -123,7 +124,7 @@ const Ecommerce = () => {
                   id="line-sparkline"
                   height="80px"
                   width="250px"
-                  color="blue"
+                  color={currentColor}
                   currentColor="blue"
                   type="Line"
                   data={SparklineAreaData}/>
@@ -132,7 +133,7 @@ const Ecommerce = () => {
               <div className='mt-10'>
               <Button
               color="white"
-              bgColor="blue"
+              bgColor={currentColor}
               text="Download report"
               borderRadius="10px"
               />

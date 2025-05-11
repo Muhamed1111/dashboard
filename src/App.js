@@ -11,15 +11,19 @@ import {
 import { useStateContext } from './contexts/ContextProvider';
 
 const App = () => {
-  const {activeMenu} = useStateContext();
+  const {activeMenu,currentColor,themeSettings,currentMode,setThemeSettings} = useStateContext();
   
   return (
-    <div>
+    <div className={currentMode==="Dark" ?"dark":"light"}>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{ zIndex: '1000' }}>
             <TooltipComponent content="Settings" position="top">
-              <button type="button" style={{ background: 'blue', borderRadius: '50%' }} className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white">
+              <button type="button"
+              onClick={() => {setThemeSettings(true)
+                console.log(themeSettings)
+              }} 
+              style={{ background: currentColor, borderRadius: '50%' }} className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white">
                 <FiSettings />
               </button>
             </TooltipComponent>
@@ -34,21 +38,23 @@ const App = () => {
             </div>
           )}
           <div className={
-            activeMenu ? 'dark:bg-main-bg bg-main-bg min-h-screen md:ml-72 w-full'
-              : 'dark:bg-main-bg bg-main-bg min-h-screen  w-full flex-2'
+            activeMenu ? 'dark:bg-main-dark-bg bg-main-bg min-h-screen md:ml-72 w-full'
+              : 'dark:bg-main-dark-bg bg-main-bg min-h-screen  w-full flex-2'
           }>
-            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+            <div className=" dark:bg-secondary-dark-bg dark:text-white fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
               <Navbar/>
 
             </div>
             <div>
+              
+             {themeSettings && <ThemeSettings/> }
               <Routes>
                 <Route path="/" element={<Ecommerce/>}/>
                 <Route path="/ecommerce" element={<Ecommerce/>}/>
 
                 <Route path="/orders" element={<Orders />}/>
                 <Route path="/employees" element={<Employees />}/>
-                <Route path="/custumers" element={<Customers />}/>
+                <Route path="/customers" element={<Customers />}/>
 
 
                 <Route path="/kanban" element={<Kanban />}/>
