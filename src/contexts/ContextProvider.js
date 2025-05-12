@@ -4,7 +4,7 @@ import { UserProfile } from "../components";
 
 const StateContext=createContext();
 
-const initialState = {
+export const initialState = {
     chat:false,
     cart:false,
     userProfile:false,
@@ -12,14 +12,17 @@ const initialState = {
 }
 
 export const ContextProvider = ({children}) =>{
-
+    const [cartMenu, setCartMenu] = useState(false);
     const [activeMenu,setActiveMenu] = useState(true);
     const [isClicked, setIsClicked] = useState(initialState)
     const [screenSize, setScreenSize] = useState(undefined)
     const [currentColor,setCurrentColor]=useState("#03D9D7")
     const [currentMode,setCurrentMode] =useState("Light")
     const [themeSettings, setThemeSettings] = useState(false)
-    
+    const setCart =(e)=>{
+        if(initialState.cart===e.target.value)
+            setCartMenu(true);
+    }
     const setMode = (e)=>{
         setCurrentMode(e.target.value)
         localStorage.setItem('themeMode',e.target.value)
@@ -34,7 +37,8 @@ export const ContextProvider = ({children}) =>{
     }
 
     const handleClick = (clicked)=>{
-        setIsClicked({ ...initialState,[clicked]:true});
+        setIsClicked({ ...initialState,[clicked]:true})
+        if(clicked===initialState.cart) setCartMenu(true);
     }
     return(
         <StateContext.Provider value={{
@@ -50,7 +54,10 @@ export const ContextProvider = ({children}) =>{
             themeSettings,
             setThemeSettings,
             setColor,
-            setMode
+            setMode,
+            cartMenu,
+            setCartMenu,
+            setCart
         }}>
             {children}
         </StateContext.Provider>

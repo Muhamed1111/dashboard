@@ -170,7 +170,7 @@ export const barPrimaryYAxis = {
   lineStyle: { width: 0 },
   labelStyle: { color: 'transparent' },
 };
-const areaChartData = [
+export const areaChartData = [
   [
     { x: new Date(2002, 0, 1), y: 2.2 },
     { x: new Date(2003, 0, 1), y: 3.4 },
@@ -2124,7 +2124,7 @@ export const employeesData = [
 export const ordersData = [
   {
     OrderID: 10248,
-    CustomerName: 'Vinet',
+    CustomerName: 'Michael',
 
     TotalAmount: 32.38,
     OrderItems: 'Fresh Tomato',
@@ -2268,7 +2268,7 @@ export const ordersData = [
   },
   {
     OrderID: 10248,
-    CustomerName: 'Vinet',
+    CustomerName: 'Michael',
 
     TotalAmount: 32.38,
     OrderItems: 'Fresh Tomato',
